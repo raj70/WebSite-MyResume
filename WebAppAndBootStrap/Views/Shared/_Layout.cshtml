@@ -1,0 +1,67 @@
+﻿@using WebAppAndBootStrap.Utilities;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg nav-bg">
+        
+        <div class="navbar-brand">
+            @Html.ActionLink("RS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+
+                @*<li class="nav-item '@Html.IsActive("Home", "Index")'">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+                <li class="nav-item '@Html.IsActive("About", "About")'">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
+                <li class="nav-item '@Html.IsActive("Contact", "Contact")'">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>*@
+
+
+                <li class="nav-item '@Html.IsActive("Contact", "Contact")'"><a href="/home/Index" class="nav-link '@Html.IsActive("Home", "Index")'">Home</a></li>
+                <li class="nav-item '@Html.IsActive("About", "About")'"><a href="/Home/About" class="nav-link '@Html.IsActive("Home", "About")'">About</a></li>
+                <li class="nav-item '@Html.IsActive("Contact", "Contact")'"><a href="/Home/Contact" class="nav-link '@Html.IsActive("Home", "Contact")'">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="row">
+                <div class="col-md-2">
+                    &nbsp;
+                </div>
+                <div class="col-md-4 footer-content">
+                    <h3>Contact:</h3>
+                    <div>rajen.shrestha@gmail.com</div>
+                    <div><a href="https://www.linkedin.com/in/rajen-shrestha/">LinkedIn</a></div>
+                    <div>Sydney, Australia</div>
+                </div>
+                <div class="col-md-4 footer-content">
+                    <h3>&nbsp;</h3>
+                    <div>&nbsp;</div>
+                    <div>&nbsp;</div>
+                    <div>&copy; @DateTime.Now.Year - Rajen Shrestha</div>
+                </div>
+                <div class="col-md-2">
+                    &nbsp;
+                </div>
+            </div>
+</footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/app")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
